@@ -1,0 +1,4 @@
+---
+- name: Importing existing zpool
+  command: zpool import "{{ import_pool }}"
+  when: import_pool != ""

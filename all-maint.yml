@@ -1,0 +1,48 @@
+---
+- hosts: all
+  remote_user: "{{ playbook_user }}"
+  become: yes
+
+  tasks:
+  
+  - name: apt update
+    apt: 
+      update_cache: yes
+
+  - name: apt dist-upgrade
+    apt: 
+      upgrade: dist
+
+  - name: apt autoremove
+    apt:
+      autoremove: yes
+
+- hosts: storage
+  become: yes  
+
+  tasks:
+
+  - name: scrubbing pool
+    command: zpool scrub {{ scrub_pool }}
+    when: scrub_pool != ""
+  
+  vars_prompt:
+    - name: "scrub_pool"
+      prompt: "For 'storage' servers, enter pool ID to scrub (blank to skip)"
+      private: no
+
+- hosts: docker
+  become: yes
+
+  tasks:
+
+  - name: backing up local docker container directories
+    synchronize:
+      src: "{{ docker_container_source_dir }}"
+      dest: "{{ docker_container_backup_dir }}"
+      rsync_path: "sudo rsync"
+      archive: yes
+      recursive: yes
+    delegate_to: "{{ inventory_hostname }}"
+
+  

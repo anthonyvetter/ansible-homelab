@@ -1,0 +1,10 @@
+---
+path: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
+timezone: 'America/Los_Angeles'
+playbook_user: 'username-for-ansible-to-manage-with'
+admin_user: 'primary-user'
+admin_user_id: 'XXXX'
+admin_group: 'group-for-admin-things'
+admin_group_id: 'XXXX'
+id_rsa_pub_path: '~/.ssh/id_rsa.pub'
+install_user: 'username-used-to-install-server'

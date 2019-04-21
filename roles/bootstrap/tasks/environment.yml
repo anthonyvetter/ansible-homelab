@@ -1,0 +1,16 @@
+- name: remove PATH variable in /etc/environment
+  lineinfile: 
+    path: /etc/environment
+    regexp: '^PATH='
+    state: absent
+
+- name: create /etc/environment
+  blockinfile: 
+    path: /etc/environment
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - BOOTSTRAP"
+    block: |
+      PATH="{{ path }}"
+      PU_ID={{ admin_user_id }}
+      PU_GID={{ admin_group_id }}
+      TZ="{{ timezone }}"
+      PU_DIR="/home/{{ admin_user }}"

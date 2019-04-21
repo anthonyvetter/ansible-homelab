@@ -1,0 +1,4 @@
+---
+- include: packages.yml
+- include: hostname.yml
+- include: fstab.yml

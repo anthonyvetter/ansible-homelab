@@ -1,0 +1,16 @@
+---
+- name: Install packages; vim
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - vim
+
+- name: Remove packages; cloud-init
+  apt: 
+    name: "{{ packages }}" 
+    state: absent
+  vars:
+    packages:
+    - cloud-init

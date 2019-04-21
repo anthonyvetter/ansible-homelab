@@ -1,0 +1,11 @@
+---
+- name: Disable ssh access for root
+  lineinfile: 
+    dest: /etc/ssh/sshd_config 
+    regexp: "^PermitRootLogin"
+    line: "PermitRootLogin no"
+    state: present
+  notify: restart ssh
+
+- name: Delete root password
+  shell: passwd -d root

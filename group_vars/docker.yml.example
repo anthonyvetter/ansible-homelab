@@ -1,0 +1,13 @@
+---
+docker_hostname: 'docker-server-hostname'
+docker_group: 'usergroup-to-manage-docker'
+docker_group_id: 'YYYY'
+docker_user_group1: 'docker-user-1'
+docker_user_group1_id: 'YYYY'
+docker_compose_version: '1.24.0-rc1'
+docker_compose_path: '/usr/local/bin/docker-compose'
+docker_container_source_dir: '/path/to/static/container/data'
+docker_container_backup_dir: '/path/of/backup/for/container/data'
+nfs_server_ip: 'xxx.xxx.xxx.xxx'
+nfs_fstab: |
+  {{ nfs_server_ip }}:/tank/folder/to/share        /mnt/folder         nfs options

@@ -1,0 +1,61 @@
+---
+- name: Create group 'admin_group'
+  group:
+    name: "{{ admin_group }}"
+    gid: "{{ admin_group_id }}"
+    system: yes
+    state: present
+
+- name: Create user 'admin_user' and add to groups 'admin_group', sudo
+  user: 
+    name: "{{ admin_user }}"
+    uid: "{{ admin_user_id }}"
+    shell: /bin/bash
+    password: "{{ admin_password }}"
+    comment: Primary admin user
+    group: "{{ admin_group }}"
+    groups: sudo
+    home: /home/{{ admin_user }}
+    createhome: yes
+    append: yes
+
+- name: add SSH key to 'admin_user'
+  authorized_key:
+    user: "{{ admin_user }}"
+    key: "{{ lookup('file', id_rsa_path) }}"
+  when: id_rsa_path is defined
+
+- name: Create user 'playbook_user' and add to groups 'admin_group' and sudo
+  user:
+    name: "{{ playbook_user }}"
+    shell: /bin/bash
+    password: "{{ admin_password }}"
+    comment: "Ansible management user"
+    group: "{{ admin_group }}"
+    groups: sudo
+    home: /home/{{ playbook_user }}
+    createhome: yes
+    append: yes
+
+- name: Add SSH key to 'playbook_user'
+  authorized_key:
+    user: "{{ playbook_user }}"
+    state: present
+    key: "{{ lookup('file', id_rsa_path) }}"
+
+- name: Copy sudoers file to tmp
+  command: cp -f /etc/sudoers /etc/sudoers.tmp
+
+- name: Backup sudoers file
+  command: cp -f /etc/sudoers /etc/sudoers.bak
+
+- name: Add 'admin_group' to sudoers file
+  lineinfile: 
+    dest: /etc/sudoers.tmp
+    state: present
+    regexp: "%{{ admin_group }} ALL"
+    line: "{{ admin_group }} ALL=(ALL) ALL"
+
+- name: Replace sudoers file
+  shell: visudo -q -c -f /etc/sudoers.tmp && cp -f /etc/sudoers.tmp /etc/sudoers
+

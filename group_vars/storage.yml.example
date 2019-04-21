@@ -1,0 +1,4 @@
+storage_hostname: 'storage-server-hostname'
+nfs_exports: |
+  /tank/path/to/share	       *(rw,sync,no_subtree_check,all_squash,anonuid={{ admin_user_id }},anongid={{ admin_group_id }})
+ 

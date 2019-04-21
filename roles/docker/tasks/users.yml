@@ -1,0 +1,21 @@
+---
+- name: Create group 'docker_group'
+  group:
+    name: "{{ docker_group }}"
+    gid: "{{ docker_group_id }}"
+    state: present
+
+- name: Create user 'docker_user'
+  user:
+    name: "{{ docker_user_group1 }}"
+    comment: Docker user
+    uid: "{{ docker_user_group1_id }}"
+    group: "{{ docker_group }}"
+    state: present
+    createhome: no
+   
+- name: add 'admin_user' to group 'docker'
+  user:
+    name: "{{ admin_user }}"
+    groups: docker
+    append: yes

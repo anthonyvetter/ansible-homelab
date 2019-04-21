@@ -1,0 +1,13 @@
+- name: Configure storage server
+  remote_user: "{{ playbook_user }}"
+  hosts: storage
+  gather_facts: True
+  become: yes
+  roles:
+    - zfs
+    - nfs-server
+
+  vars_prompt:
+    - name: "import_pool"
+      prompt: "Enter pool ID to import existing pool (blank to skip)"
+      private: no

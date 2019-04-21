@@ -1,0 +1,20 @@
+- name: Install packages; apt-transport-https, ca-certificates, curl, software-properties-common
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - docker-ce
+  notify:
+    - restart docker
+
+- name: Install packages; docker-compose
+  get_url:
+    url: https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64
+    dest: "{{ docker_compose_path }}"
+    mode: 0755
+    

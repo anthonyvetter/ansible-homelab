@@ -1,0 +1,6 @@
+- name: copy block to /etc/exports
+  blockinfile: 
+    path: /etc/exports
+    block: "{{ nfs_exports }}"
+  notify:
+    - restart nfs-server

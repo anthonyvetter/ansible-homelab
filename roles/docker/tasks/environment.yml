@@ -1,0 +1,8 @@
+---
+- name: create /etc/environment
+  blockinfile: 
+    path: /etc/environment
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - DOCKER"
+    block: |
+      DOCKERG1UID={{ docker_user_group1_id }}
+      DOCKERGID={{ docker_group_id }}

@@ -1,0 +1,8 @@
+- name: Install packages; nfs-common
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - nfs-common

@@ -1,0 +1,8 @@
+---
+- name: restore local docker directories
+  synchronize:
+    dest: "{{ docker_container_source_dir }}"
+    src: "{{ docker_container_backup_dir }}"
+    archive: yes
+    recursive: yes
+  delegate_to: "{{ inventory_hostname }}"

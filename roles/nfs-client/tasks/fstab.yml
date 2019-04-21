@@ -1,0 +1,7 @@
+---
+- name: copy block to /etc/fstab
+  blockinfile: 
+    path: /etc/fstab
+    block: "{{ nfs_fstab }}"
+  notify:
+    - restart nfs-client

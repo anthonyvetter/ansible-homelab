@@ -1,0 +1,8 @@
+- name: Configure docker server
+  remote_user: "{{ playbook_user }}"
+  hosts: docker
+  gather_facts: True
+  become: yes
+  roles:
+    - nfs-client
+    - docker
