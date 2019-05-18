@@ -1,8 +1,8 @@
+# used for the bootstrap.yml playbook
 [new-server]
 xxx.xxx.xxx.xxx
 
 [all]
-xxx.xxx.xxx.xxx
 xxx.xxx.xxx.xxx
 xxx.xxx.xxx.xxx
 

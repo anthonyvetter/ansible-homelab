@@ -1,10 +1,10 @@
 ---
 path: '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games'
 timezone: 'America/Los_Angeles'
-playbook_user: 'username-for-ansible-to-manage-with'
-admin_user: 'primary-user'
-admin_user_id: 'XXXX'
-admin_group: 'group-for-admin-things'
-admin_group_id: 'XXXX'
+playbook_user: 'username-for-ansible-to-manage-with'    # playbooks connect as this user
+admin_user: 'primary-user'                              # the primary admin user
+admin_user_id: 'XXXX'                                   # user id for the admin user
+admin_group: 'group-for-admin-things'                   # group name for the admin user
+admin_group_id: 'XXXX'                                  # group id for the admin user
 id_rsa_pub_path: '~/.ssh/id_rsa.pub'
-install_user: 'username-used-to-install-server'
+install_user: 'username-used-to-install-server'         # assumes an automated install user was created

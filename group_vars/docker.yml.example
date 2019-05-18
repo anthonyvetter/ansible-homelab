@@ -1,13 +1,14 @@
 ---
 docker_hostname: 'docker-server-hostname'
-docker_group: 'usergroup-to-manage-docker'
-docker_group_id: 'YYYY'
-docker_user_group1: 'docker-user-1'
-docker_user_group1_id: 'YYYY'
-docker_compose_version: '1.24.0-rc1'
+docker_group: 'usergroup-to-manage-docker'      # group name to manage docker
+docker_group_id: 'YYYY'                         # group id for group to manage docker
+docker_user_group1: 'docker-user-1'             # docker user for docker server
+docker_user_group1_id: 'YYYY'                   # docker user group id
+docker_compose_version: '1.24.0-rc1'            # version of docker compose to download
 docker_compose_path: '/usr/local/bin/docker-compose'
 docker_container_source_dir: '/path/to/static/container/data'
 docker_container_backup_dir: '/path/of/backup/for/container/data'
-nfs_server_ip: 'xxx.xxx.xxx.xxx'
-nfs_fstab: |
+nfs_server_ip: 'xxx.xxx.xxx.xxx'                # ip address of storge server
+# any of the NFS exports to be imported to the docker server
+nfs_fstab: |    
   {{ nfs_server_ip }}:/tank/folder/to/share        /mnt/folder         nfs options
