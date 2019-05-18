@@ -31,18 +31,19 @@
       prompt: "For 'storage' servers, enter pool ID to scrub (blank to skip)"
       private: no
 
-- hosts: docker
-  become: yes
+# Need better method for copying tons of config files besides rsync
+# Copy container config files and databases from Docker host to Storage pool
+# Takes too long, fails often
+# - hosts: docker
+#   become: yes
 
-  tasks:
+#   tasks:
 
-  - name: backing up local docker container directories
-    synchronize:
-      src: "{{ docker_container_source_dir }}"
-      dest: "{{ docker_container_backup_dir }}"
-      rsync_path: "sudo rsync"
-      archive: yes
-      recursive: yes
-    delegate_to: "{{ inventory_hostname }}"
-
-  
+#   - name: backing up local docker container directories
+#     synchronize:
+#       src: "{{ docker_container_source_dir }}"
+#       dest: "{{ docker_container_backup_dir }}"
+#       rsync_path: "sudo rsync"
+#       archive: yes
+#       recursive: yes
+#     delegate_to: "{{ inventory_hostname }}"

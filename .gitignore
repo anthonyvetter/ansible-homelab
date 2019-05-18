@@ -5,3 +5,4 @@ ansible.cfg
 all.yml
 docker.yml
 storage.yml
+.DS_Store
