@@ -6,3 +6,4 @@ all.yml
 docker.yml
 storage.yml
 .DS_Store
+kubernetes.yml
