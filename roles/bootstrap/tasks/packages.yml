@@ -6,6 +6,7 @@
   vars:
     packages:
     - vim
+    - aptitude
 
 - name: Remove packages; cloud-init
   apt: 

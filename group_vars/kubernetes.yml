@@ -1,0 +1,22 @@
+---
+docker_group: 'docker'
+docker_group_id: '1103'
+docker_user_group1: 'docker-mediagroup-user'
+docker_user_group1_id: '1103'
+docker_compose_version: '1.24.0-rc1'
+docker_compose_path: '/usr/local/bin/docker-compose'
+docker_container_source_dir: '/home/av/docker/'
+docker_container_backup_dir: '/tank/backups/docker/'
+nfs_server_ip: '192.168.1.250'
+nfs_fstab: |
+  {{ nfs_server_ip }}:/tank/docs        /tank/docs         nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+  {{ nfs_server_ip }}:/tank/backups     /tank/backups      nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+  {{ nfs_server_ip }}:/tank/isos        /tank/isos         nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+  {{ nfs_server_ip }}:/tank/movies      /tank/movies       nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+  {{ nfs_server_ip }}:/tank/tv-shows    /tank/tv-shows     nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+  {{ nfs_server_ip }}:/tank/music       /tank/music        nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+  {{ nfs_server_ip }}:/tank/misc        /tank/misc         nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+  {{ nfs_server_ip }}:/tank/vms         /tank/vms          nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+  {{ nfs_server_ip }}:/tank/mediastack  /tank/mediastack   nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+  {{ nfs_server_ip }}:/tank/utilsstack  /tank/utilsstack   nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
+  {{ nfs_server_ip }}:/tank/wikistack   /tank/wikistack    nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0

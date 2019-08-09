@@ -1,9 +1,9 @@
----
-- name: Configure docker server
+- name: Configure kubernetes server
   remote_user: "{{ playbook_user }}"
-  hosts: docker
+  hosts: kubernetes
   gather_facts: True
   become: yes
   roles:
     - nfs-client
     - docker
+    - k8s

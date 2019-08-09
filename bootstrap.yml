@@ -1,6 +1,6 @@
 ---
 - name: bootstrap ubuntu servers
-  hosts: new-server
+  hosts: newserver
   remote_user: "{{ install_user }}"
   gather_facts: False
   become: yes

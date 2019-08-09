@@ -1,0 +1,15 @@
+---
+- name: Add kubernetes GPG key
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: Enable kubernetes stable repository
+  apt_repository:
+    repo: deb http://apt.kubernetes.io/ kubernetes-bionic main
+    state: present
+    update_cache: yes
+
+
+
+
