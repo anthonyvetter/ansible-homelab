@@ -26,6 +26,9 @@
     command: zpool scrub {{ scrub_pool }}
     when: scrub_pool != ""
   
+  - name: upgrading zpool
+    command: zpool upgrade
+
   vars_prompt:
     - name: "scrub_pool"
       prompt: "For 'storage' servers, enter pool ID to scrub (blank to skip)"
