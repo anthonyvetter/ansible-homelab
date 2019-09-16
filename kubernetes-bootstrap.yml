@@ -6,4 +6,4 @@
   roles:
     - nfs-client
     - docker
-    - k8s
+    - kubernetes
