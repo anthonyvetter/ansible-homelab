@@ -1,3 +1,0 @@
----
-- name: Install python 
-  raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)

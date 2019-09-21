@@ -1,5 +1,4 @@
 ---
-- include: python.yml
 - include: update.yml
 - include: environment.yml
 - include: users.yml
