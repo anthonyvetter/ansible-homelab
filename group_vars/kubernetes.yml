@@ -21,4 +21,3 @@ nfs_fstab: |
   {{ nfs_server_ip }}:/tank/utilsstack  /tank/utilsstack   nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
   {{ nfs_server_ip }}:/tank/wikistack   /tank/wikistack    nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
   {{ nfs_server_ip }}:/tank/kubernetes  /tank/kubernetes   nfs auto,nofail,noatime,nolock,intr,tcp,actimeo=1800 0 0
-
