@@ -1,0 +1,4 @@
+---
+- include: repos.yml
+- include: packages.yml
+- include: git.yml

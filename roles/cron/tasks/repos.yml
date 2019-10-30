@@ -1,0 +1,4 @@
+---
+ - name: add ansible repository
+   apt_repository:
+    repo: ppa:ansible/ansible

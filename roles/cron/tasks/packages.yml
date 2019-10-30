@@ -1,0 +1,9 @@
+---
+- name: Install packages; ansible, git
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - ansible
+    - git
