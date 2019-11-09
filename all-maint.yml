@@ -18,6 +18,7 @@
       autoremove: yes
 
 - hosts: storage
+  remote_user: "{{ playbook_user }}"
   become: yes  
 
   tasks:
