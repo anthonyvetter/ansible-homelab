@@ -1,0 +1,7 @@
+- name: Configure cron server
+  remote_user: "{{ playbook_user }}"
+  hosts: cron
+  gather_facts: True
+  become: yes
+  roles:
+    - cron

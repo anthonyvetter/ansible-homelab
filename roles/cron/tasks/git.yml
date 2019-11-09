@@ -2,4 +2,4 @@
 - name: clone ansible git repo
   git:
     repo: https://github.com/anthonyvetter/ansible-homelab.git
-    dest: ~/
+    dest: ~/git/
