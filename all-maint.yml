@@ -24,16 +24,16 @@
   tasks:
 
   - name: scrubbing pool
-    command: zpool scrub {{ scrub_pool }}
+    command: zpool scrub {{ zpool_name }}
     when: scrub_pool != ""
   
   - name: upgrading zpool
     command: zpool upgrade
 
-  vars_prompt:
-    - name: "scrub_pool"
-      prompt: "For 'storage' servers, enter pool ID to scrub (blank to skip)"
-      private: no
+#  vars_prompt:
+#    - name: "scrub_pool"
+#      prompt: "For 'storage' servers, enter pool ID to scrub (blank to skip)"
+#      private: no
 
 # Need better method for copying tons of config files besides rsync
 # Copy container config files and databases from Docker host to Storage pool
